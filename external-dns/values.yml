@@ -1,0 +1,11 @@
+rbac:
+  create: true
+
+provider: digitalocean
+
+interval: 1m
+
+policy: sync
+
+domainFilters:
+  - rarick.me

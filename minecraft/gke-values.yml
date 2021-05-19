@@ -1,0 +1,37 @@
+minecraftServer:
+  eula: true
+  maxPlayers: 20
+  motd: Blum Gang
+
+  pvp: true
+
+  rcon:
+    enabled: true
+    serviceType: ClusterIP
+    password: minecraft
+
+  hostPort:
+    enabled: true
+    port: 25565
+
+  serviceType: ClusterIP
+  serviceAnnotations:
+    helm.sh/resource-policy: keep
+
+nodeSelector:
+  minecraft: allow
+
+tolerations:
+  - key: minecraft
+    operator: Equal
+    value: allow
+
+resources:
+  requests:
+    cpu: 3000m
+    memory: 2Gi
+
+persistence:
+  dataDir:
+    enabled: True
+    existingClaim: minecraft-pvc

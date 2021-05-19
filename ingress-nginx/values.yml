@@ -1,0 +1,16 @@
+controller:
+  config:
+    ssl-redirect: true
+    force-ssl-redirect: true
+
+  hostPort:
+    enabled: true
+    ports:
+      http: 80
+      https: 443
+
+  nodeSelector:
+    ingress-nginx: allow
+
+  service:
+    enabled: false
